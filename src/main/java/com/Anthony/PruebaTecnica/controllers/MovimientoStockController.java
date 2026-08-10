@@ -32,7 +32,7 @@ public class MovimientoStockController {
             @RequestBody MovimientoStockRequestDTO dto,
             Authentication authentication) {
 
-        String username = authentication.getName(); // aquí sacas quién está logueado
+        String username = authentication.getName();
         MovimientoStockDTO creado = movimientoStockService.registrar(dto, username);
         return ResponseEntity.status(HttpStatus.CREATED).body(creado);
     }

@@ -16,11 +16,11 @@ import com.Anthony.PruebaTecnica.security.entities.services.UserService;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private final UserService userService; // Inyectamos UserService directamente
+    private final UserService userService;
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return userService; // Retornamos la instancia de UserService
+        return userService;
     }
 
     @Bean

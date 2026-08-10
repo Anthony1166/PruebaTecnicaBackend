@@ -11,13 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 
-/**
- * Sin este handler, cualquier excepción lanzada dentro de un controlador
- * (ResponseStatusException de negocio: 404/409/400, o un AccessDeniedException
- * de @PreAuthorize) terminaba devolviendo 401 en vez de su código real,
- * porque no había nada que la tradujera a una respuesta HTTP explícita antes
- * de que cayera en el flujo de error genérico de Spring Security.
- */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

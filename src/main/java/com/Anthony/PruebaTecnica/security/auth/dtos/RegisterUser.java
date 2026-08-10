@@ -25,13 +25,5 @@ public class RegisterUser {
 
     @NotBlank(message = "El teléfono es obligatorio")
     private String phone;
-
-    /**
-     * Rol elegido en el registro ("OPERADOR" o "ADMIN"). Si viene vacío se
-     * asume OPERADOR.
-     * NOTA: esto permite auto-registro como ADMIN sin restricción — válido
-     * para esta prueba técnica, pero no debería exponerse así en un registro
-     * público real.
-     */
     private String role;
 }
