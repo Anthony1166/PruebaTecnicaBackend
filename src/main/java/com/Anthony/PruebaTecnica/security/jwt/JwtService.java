@@ -27,14 +27,14 @@ public class JwtService {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
 
-        // SOLUCIÓN: Extraer los roles y añadirlos como un "claim" llamado "roles"
+       
         String roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
 
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
-                .claim("roles", roles) // <-- AQUÍ AÑADIMOS LOS ROLES
+                .claim("roles", roles) 
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000L))
                 .signWith(key, SignatureAlgorithm.HS256)
